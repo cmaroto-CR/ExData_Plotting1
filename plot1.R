@@ -21,3 +21,12 @@ if (!file.exists(input_file)) {
 
 # Load data from file
 source_data <- read_csv(input_file)
+
+# Open png device to redirect plot to
+png(filename = paste(getwd(), "/data/plot1.png", sep = ""))
+
+# Generate plot
+hist(source_data$Global_active_power, freq = TRUE, xlab = "Global Active Power (kilowatts)", main = "Global Active Power", col = "red")
+
+# Close device to finish working with file
+dev.off()
