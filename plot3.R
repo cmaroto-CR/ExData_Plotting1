@@ -26,7 +26,7 @@ source_data <- read_csv(input_file)
 png(filename = paste(getwd(), "/data/plot3.png", sep = ""))
 
 # Generate plot, combining date and time as a single variable for plotting each of the sub metering variables
-plot(Sub_metering_1 ~ with(source_data, as.POSIXct(paste(Date, Time), format="%Y-%m-%d %H:%M")), data=source_data, type = "l", xlab = "", ylab = "Energy sub metering")
+with(source_data, plot(Sub_metering_1 ~ as.POSIXct(paste(Date, Time), format="%Y-%m-%d %H:%M"), type = "l", xlab = "", ylab = "Energy sub metering"))
 with(source_data, lines(Sub_metering_2 ~ as.POSIXct(paste(Date, Time), format="%Y-%m-%d %H:%M"), type = "l", col = "red"))
 with(source_data, lines(Sub_metering_3 ~ as.POSIXct(paste(Date, Time), format="%Y-%m-%d %H:%M"), type = "l", col = "blue"))
 

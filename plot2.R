@@ -26,7 +26,7 @@ source_data <- read_csv(input_file)
 png(filename = paste(getwd(), "/data/plot2.png", sep = ""))
 
 # Generate plot, combining date and time as a single variable for plotting
-plot(Global_active_power ~ with(source_data, as.POSIXct(paste(Date, Time), format="%Y-%m-%d %H:%M")), data=source_data, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
+with(source_data, plot(Global_active_power ~ as.POSIXct(paste(Date, Time), format="%Y-%m-%d %H:%M"), type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 
 # Close device to finish working with file
 dev.off()
